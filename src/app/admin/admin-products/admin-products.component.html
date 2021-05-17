@@ -1,0 +1,29 @@
+<!-- <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a> -->
+<h1 class="px-3 py-5 text-center">Add New Product</h1>
+ <div class="example-button-container px-5 text-center">
+        <button routerLink="/admin/products/new" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+</div>
+<div class="py-5">
+  <input #searchbar type="text" (keyup) = "filter(searchbar.value)" class="form-control" placeholder="Search Products">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Manufacturer Name</th>
+        <th>Price</th>
+        <th>Created On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of filteredproducts">
+        <td>{{p.productName}}</td>
+        <td>{{p.manufacturerName}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.createdOn}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

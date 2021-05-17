@@ -1,0 +1,47 @@
+<div id="signin-body">
+  <div id="signin-box">
+    <div class="left-box">
+      <h1>Sign-In</h1>
+      <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+        
+        <input type="text"
+         placeholder="User Name"
+         required maxlength="25"
+         [(ngModel)]="userName"
+         name="userName"
+         #pickedName="ngModel">
+        <div *ngIf="!pickedName.valid && pickedName.touched">
+            UserName is required
+        </div>
+  
+        <input type="password"
+         placeholder="Password"
+         required
+        [(ngModel)]="password"
+         name="password"
+        #userPassword="ngModel">
+        <div *ngIf="!userPassword.valid && userPassword.touched">
+          Password is required!
+         </div>
+  
+         <button  mat-button color="primary" type="submit" [disabled]="!signInForm.form.valid">
+          SignIn
+      </button>
+    
+      <!-- <button  class="btn btn-danger" type="button" (click)="signInForm.reset()">
+        Reset
+      </button> -->
+
+      <pre>{{ signInForm.form.value | json }}</pre>
+       </form>
+  
+    </div>
+    <div class="right-box">
+      <span>Sign in with <br> Social Account</span>
+  
+      <button class="social google">Log in with Google</button>
+      <button class="social beep">Dont't have an account, Go get One</button>
+  
+    </div>
+  </div>
+</div>

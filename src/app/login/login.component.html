@@ -1,0 +1,43 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+
+        <div class="row">
+            <div class="col-md-6 offest-md-3">
+                <!-- <div class="container text-center">
+                    <img src="../../assets/images/login.jpg" class="img-fluid">
+                </div> -->
+                <p class="login-heading">Welcome Back :)</p>
+                <p class="login-desc">To keep connected with us please login with your personal information by email address and password.</p>
+
+                <form (ngSubmit)="onSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label> Username</mat-label>
+                        <input #uname="ngModel" [(ngModel)]="credentials.username" name="username" required type="text" matInput>
+                    </mat-form-field>
+                    <div class="alert alert-danger" *ngIf="uname.touched && uname.invalid">
+                        Username is required
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label> Password</mat-label>
+                        <input #pwd="ngModel" [(ngModel)]="credentials.password" name="password" required type="password" matInput>
+                    </mat-form-field>
+                    <div class="alert alert-danger" *ngIf="pwd.touched && pwd.invalid">
+                        Password is required
+                    </div>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Login</button>
+                        <button style="margin-left: 10px;" type="reset" mat-raised-button color="accent">Reset</button>
+                    </div>
+                </form>
+                {{credentials|json}}
+                <div class="container text-center">
+                    <img src="../../assets/images/template.svg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+    </div>
+</div>

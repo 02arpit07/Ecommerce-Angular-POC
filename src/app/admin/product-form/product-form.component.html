@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-md-6">
+
+        <form (ngSubmit)="addProduct()">
+            <h1 class="font-style-1">Add <span class="blueColor">Product</span></h1>
+            <div class="form-field-div">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Product Name</mat-label>
+                    <input #productName="ngModel" [(ngModel)]="product.productName" name="productName" required type="text" matInput>
+                </mat-form-field>
+            </div>
+        
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Manufacturer Name</mat-label>
+                    <input [(ngModel)]="product.manufacturerName" name="manufacturerName" required type="text" matInput>
+                </mat-form-field>
+            </div>
+        
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Price</mat-label>
+                    <input #price="ngModel" [(ngModel)]="product.price" name="price" required type="number" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="product.category.categoryId" name="categoryId">
+                            <mat-option value=""></mat-option>
+                            <mat-option *ngFor="let c of categories;index as i" [value]="c.categoryId">{{c.categoryName}} {{c.categoryId}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Image Url</mat-label>
+                    <input [(ngModel)]="product.imageUrl" name="imageUrl" required type="string" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Short Description</mat-label>
+                    <input #shortdes="ngModel" [(ngModel)]="product.shortDescription" name="shortDescription" required type="string" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Long Description</mat-label>
+                    <input #longdes="ngModel" [(ngModel)]="product.longDescription" name="longDescription" required type="string" matInput>
+                </mat-form-field>
+            </div>
+        
+            <button class="button-AddProduct button" type="submit">Add Product</button>
+        </form>
+
+    </div>
+    <div class="col-md-6 form-card">
+
+        <div *ngIf="product.productName" class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../../../assets/images/cartimage.png" alt="Default Product Image">
+            <div class="card-body">
+              <h4 class="card-title">{{productName.value}}</h4>
+              <p class="card-text">{{price.value | currency:'INR'}}</p>
+              <p class="card-text">{{shortdes.value}}</p>
+              <p class="card-text">{{longdes.value}}</p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+{{product|json}}
+
+
+<!-- <form (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label> Username</mat-label>
+        <input [(ngModel)]="credentials.username" name="username" required type="text" matInput>
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label> Password</mat-label>
+        <input [(ngModel)]="credentials.password" name="password" type="password" matInput>
+    </mat-form-field>
+
+    <div class="container text-center">
+        <button type="submit" mat-raised-button color="primary">Login</button>
+        <button style="margin-left: 10px;" type="reset" mat-raised-button color="accent">Reset</button>
+    </div>
+</form> -->
+
+
+<!-- <form (ngSubmit)="onSubmit()">
+    <h1>Add Product</h1>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input id="title" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="category">category</label>
+        <select id="category" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let c of categories;index as i" [value]="c.categoryName">{{c.categoryName}} {{c.categoryId}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image Url</label>
+        <input id="imageUrl" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary">Save</button>
+</form> -->
