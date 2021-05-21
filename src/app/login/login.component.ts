@@ -38,7 +38,12 @@ export class LoginComponent implements OnInit {
           });
         },
         error =>{
-          console.log(error)
+          if(error.status ==401){
+            this.toastr.error('Invalid Credentials', 'Notification', {
+              timeOut: 4000,
+              closeButton:true
+            });
+          }
         }
       )
     }

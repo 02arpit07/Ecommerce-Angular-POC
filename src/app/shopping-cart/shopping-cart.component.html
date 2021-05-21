@@ -1,1 +1,36 @@
-<p>shopping-cart works!</p>
+<table class=" table table-hover table-condensed">
+    <thead>
+    <tr>
+      <th style="width:30%" class="text-center">Product</th>
+      <th style="width:20%" class="text-center">Price</th>
+      <th style="width:10%" class="text-center">Quantity</th>
+      <th style="width:25%" class="text-center">Subtotal</th>
+      <th style="width:15%" class="text-center"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of products">
+      <td>
+        <div class="row">
+          <!-- <div class="col-sm-2 hidden-xs"> -->
+            <!-- <img src="{{p.product.image}}" height="80px" width="80px" alt="image" class="img-responsive dataTableImg"/></div> -->
+          <div class="pt-2"style="margin-left: 90px" >{{p.productName}}</div>
+        </div>
+      </td>
+      <td  class="text-center pt-4"> &#8377; {{p.product.price}}</td>
+      <td>
+        <button (click)="removeOneProduct(p.product.productId)">-</button>{{p.quantity}}<button (click)="addOneProduct(p.product.productId)">+</button>
+      </td>
+      <td class="text-center pt-4">&#8377;{{(p.quantity)*(p.product.price)}}</td>
+      <td><button class=" btn btn-danger mt-2" (click)="removeWholeProduct(p.product.productId)">remove</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="hidden-xs text-center"><strong>&#8377;{{totalAmount}}</strong></td>
+    </tr>
+    </tfoot>
+  </table>

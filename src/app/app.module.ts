@@ -31,6 +31,10 @@ import { ToastrModule } from 'ngx-toastr';
 import {MatIconModule} from '@angular/material/icon';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatCardModule} from '@angular/material/card';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { CartService } from './services/cart.service';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -49,7 +53,9 @@ import {MatCardModule} from '@angular/material/card';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -66,11 +72,13 @@ import {MatCardModule} from '@angular/material/card';
     ToastrModule.forRoot(),
     MatIconModule,
     MatCardModule,
+    MatSliderModule,
   ],
   providers: [
     LoginService,
     CategoryService,
-    ProductService
+    ProductService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

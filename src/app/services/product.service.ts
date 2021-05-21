@@ -29,7 +29,6 @@ export class ProductService {
   constructor(private http:HttpClient,private loginservice:LoginService) { }
 
   addProduct(product) {
-    console.log('service file')
     return this.http.post(`${this.url}/add`,product,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
@@ -40,4 +39,9 @@ export class ProductService {
   getAllProducts():Observable<Product[]>{
     return this.http.get<Product[]>(this.url);
   }
+
+  getProductByPriceBetween(min , max) {
+    return this.http.get<Product[]>(this.url+'/category'+'/'+min+'/'+max);
+  }
+
 }
