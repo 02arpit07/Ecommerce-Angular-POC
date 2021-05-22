@@ -1,1 +1,28 @@
-<p>my-orders works!</p>
+<div class="container">
+    <h1 class="font1 my-3 text-center">Order History</h1>
+    <table class="table table-hover text-center text-black-50">
+      <thead>
+      <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Product Quantity</th>
+        <th>Product Price</th>
+        <th>Date</th>
+        <th>Is Delivered</th>
+        <th>See Details</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let history of orderHistory">
+        <td><img src="{{history.image}}" height="120px" width="130px"></td>
+        <td>{{history.productName}}</td>
+        <td>{{history.productQuantity}}</td>
+        <td>{{history.productPrice}}</td>
+        <td>{{history.orderDate}}</td>
+        <td>{{history.isDelivered}}</td>
+        <td><button class="btn btn-success">See Details</button></td>    
+        <!-- (click)="checkDetails(history.productId)" -->
+      </tr>
+      </tbody>
+    </table>
+  </div>

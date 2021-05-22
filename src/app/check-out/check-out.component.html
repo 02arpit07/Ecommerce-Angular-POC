@@ -1,1 +1,46 @@
-<p>check-out works!</p>
+<div class="row">
+    <div class="col-md-9">
+
+        <form (ngSubmit)="addShippingAdress()">
+            <h1 class="font-style-1">Add <span class="blueColor">Shipping Address</span></h1>
+            <div class="form-field-div">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Full Address</mat-label>
+                    <input #customer_address="ngModel" [(ngModel)]="shippingInfo.customer_address" name="customer_address" required type="text" matInput>
+                </mat-form-field>
+            </div>
+        
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Home City</mat-label>
+                    <input #city="ngModel" [(ngModel)]="shippingInfo.city" name="city" required type="text" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>State </mat-label>
+                    <input #state="ngModel" [(ngModel)]="shippingInfo.state" name="state" required type="text" matInput>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label> Phone Number</mat-label>
+                    <input #phone_number="ngModel" [(ngModel)]="shippingInfo.phone_number" name="phone_number" required type="text" matInput>
+                </mat-form-field>
+            </div>
+        
+            <button class="button-AddProduct button" type="submit">Add Adress And Proceed to Cart</button>
+        </form>
+
+    </div>
+    <div class="col-md-3 form-card">
+
+        We are pleased to serve you.....
+
+    </div>
+
+</div>
+
+
+{{shippingInfo|json}}
+

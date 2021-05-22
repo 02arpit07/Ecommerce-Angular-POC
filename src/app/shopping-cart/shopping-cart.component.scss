@@ -1,0 +1,78 @@
+.quantity-font{
+    font-size: 26px;
+    padding: 15px;
+}
+.font-size-26{
+    font-size: 26px;
+}
+.font-size-20{
+    font-size: 20px;
+}
+.font-size-40{
+    font-size: 30px;
+    font-weight: 400;
+}
+.button {
+    border: none;
+    margin-left: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 6px !important;
+    padding: 5px 28px !important;
+    font-size: 20px !important;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    /* identical to box height */
+  
+    text-align: center;
+  
+    color: black;
+  }
+.buttonGetStarted-header {
+    background-color: #384bd4;
+    color: #ffffff !important;
+    border: 3px solid #384bd4 !important;
+    border-radius: 3px;
+  }
+  .buttonGetStarted-header:hover {
+    background-color: white;
+    color: #384bd4 !important;
+  }
+ .marg-top-30{
+     margin-top: 50px;
+     margin-bottom: 30px;
+ }
+
+ .blueColor{
+    color: #384bd4 !important;
+  }
+  .font-wt{
+      font-size: 40px;
+  }
+  .buttonGetStarted-yellow{
+    background-color: #ffbd08;
+    color: #ffffff !important;
+    border: 3px solid #ffbd08 !important;
+    border-radius: 3px;
+  }
+  .buttonGetStarted-yellow:hover{
+    background-color: white;
+    color: #ffbd08 !important;
+  }
+
+  .buttonGetStarted-green{
+    background-color: #00bd48;
+    color: #ffffff !important;
+    border: 3px solid #00bd48 !important;
+    border-radius: 3px;
+  }
+  .buttonGetStarted-green:hover{
+    background-color: white;
+    color: #00bd48 !important;
+  }

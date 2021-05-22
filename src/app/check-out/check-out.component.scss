@@ -1,0 +1,38 @@
+.button{
+    border: none;
+    margin-left: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 6px !important;
+    padding: 5px 28px !important;
+    font-size: 20px !important;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    width: 100%;
+  }
+  .button-AddProduct{
+    background-color: #384bd4;
+    color: #ffffff !important;
+    border: 3px solid #384bd4 !important;
+    border-radius: 3px;
+  }
+  .button-AddProduct:hover{
+    background-color: white;
+    color: #384bd4 !important;
+  }
+  .font-style-1 {
+    text-align: start;
+    font-weight: 400;
+    font-size: 42px;
+    color: black;
+    padding: 20px;
+  }
+  .blueColor{
+    color: #384bd4 !important;
+  }

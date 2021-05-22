@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService:CartService) { }
+
+  orderHistory:any=[];
 
   ngOnInit(): void {
+    this.cartService.getOrderHistory().subscribe(orders =>{
+      console.log(orders);
+      this.orderHistory = orders;
+    })
   }
 
 }

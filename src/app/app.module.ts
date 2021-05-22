@@ -35,6 +35,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CartService } from './services/cart.service';
 import {MatSliderModule} from '@angular/material/slider';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 
@@ -55,7 +56,8 @@ import {MatSliderModule} from '@angular/material/slider';
     ProductFormComponent,
     PageNotFoundComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

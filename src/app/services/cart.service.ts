@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ShippingInfo } from '../model/shipping-info';
 import { LoginService } from './login.service';
 
 @Injectable({
@@ -51,7 +52,7 @@ export class CartService {
     });
   }
 
-  showOrderHistory() {
+  checkout() {
     return this.http.get(`${this.url}/checkout/`,{
       headers : new HttpHeaders({
         'Content-Type': 'application/json',
@@ -60,5 +61,30 @@ export class CartService {
     })
   }
 
+  getOrderHistory() {
+    return this.http.get(`${this.url}/orderHistory/`,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.loginservice.getToken()}`
+      })
+    })
+  }
 
+  sendShippingInfo(shippingInfo) {
+    return this.http.post(`${this.url}/shippingInfo`,shippingInfo,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.loginservice.getToken()}`
+      })
+    });
+  }
+  // getShippingInfo
+  checkIfAddressIsExisting() {
+    return this.http.get<ShippingInfo>(`${this.url}/getShippingInfo/`,{
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.loginservice.getToken()}`
+      })
+    })
+  }
 }

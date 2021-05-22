@@ -1,36 +1,53 @@
+<h1 class="px-3 py-5 text-center font-wt">My <span class="blueColor">Cart</span></h1>
 <table class=" table table-hover table-condensed">
     <thead>
     <tr>
-      <th style="width:30%" class="text-center">Product</th>
-      <th style="width:20%" class="text-center">Price</th>
-      <th style="width:10%" class="text-center">Quantity</th>
-      <th style="width:25%" class="text-center">Subtotal</th>
-      <th style="width:15%" class="text-center"></th>
+      <th  class="text-center" style="width:10%">Image</th>
+      <th  class="text-center">Product</th>
+      <th style="width:15%" class="text-center">Price</th>
+      <th style="width:20%" class="text-center">Quantity</th>
+      <th style="width:15%" class="text-center">Subtotal</th>
+      <th style="width:10%" class="text-center"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let p of products">
       <td>
         <div class="row">
-          <!-- <div class="col-sm-2 hidden-xs"> -->
-            <!-- <img src="{{p.product.image}}" height="80px" width="80px" alt="image" class="img-responsive dataTableImg"/></div> -->
-          <div class="pt-2"style="margin-left: 90px" >{{p.productName}}</div>
+          <div class="col-sm-2 hidden-xs">
+            <img src={{p.product.imageUrl}} height="80px" width="80px" alt="image" class="img-responsive dataTableImg"/></div>
         </div>
       </td>
-      <td  class="text-center pt-4"> &#8377; {{p.product.price}}</td>
       <td>
-        <button (click)="removeOneProduct(p.product.productId)">-</button>{{p.quantity}}<button (click)="addOneProduct(p.product.productId)">+</button>
+        <div class="row">
+            <div class="pt-2"style="margin-left: 90px" ><span class="font-size-20">{{p.productName}}</span></div>
+        </div>
       </td>
-      <td class="text-center pt-4">&#8377;{{(p.quantity)*(p.product.price)}}</td>
-      <td><button class=" btn btn-danger mt-2" (click)="removeWholeProduct(p.product.productId)">remove</button></td>
+      <td  class="text-center pt-4"><span class="font-size-20"> &#8377; {{p.product.price}}</span></td>
+      <td class="text-center pt-4">
+        <div>
+          <button (click)="removeOneProduct(p.product.productId)" mat-mini-fab color="primary"> - </button><span class="quantity-font">{{p.quantity}}</span>  <button (click)="addOneProduct(p.product.productId)" mat-mini-fab color="primary"> + </button>
+        </div>
+      </td>
+      <td class="text-center pt-4"><span class="font-size-20">&#8377;{{(p.quantity)*(p.product.price)}}</span></td>
+      <td><button class=" btn btn-danger mt-2" (click)="removeWholeProduct(p.product.productId)">Remove</button></td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
       <td></td>
       <td></td>
-      <td></td>
-      <td class="hidden-xs text-center"><strong>&#8377;{{totalAmount}}</strong></td>
+      <td> <span class="font-size-40">Total Amount</span></td>
+      <td class=" text-center pt-6"><span class="font-size-40">&#8377;{{totalAmount}}</span></td>
     </tr>
     </tfoot>
   </table>
+
+  <div class="text-center marg-top-30">
+    <button class="button buttonGetStarted-yellow text-center" (click)="gotoShippingInfoForm()">Add Adress</button>
+    <span *ngIf="userHasAddressSaved">
+      <button class="button buttonGetStarted-header text-center" (click)="checkOut()">CheckOut</button>
+    </span>
+    <button class="button buttonGetStarted-green text-center" routerLink="/home">Continue Shopping</button>
+  </div>
+  <!-- [disabled]="!userHasAddressSaved" -->
