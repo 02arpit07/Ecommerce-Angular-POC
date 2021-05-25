@@ -1,4 +1,8 @@
-<h1 class="px-3 py-5 text-center font-wt">My <span class="blueColor">Cart</span></h1>
+<app-navbar></app-navbar> 
+ <!-- [totalItemssss]="totalItems" -->
+<div class="mx-3">
+  <h1 class="px-3 py-5 text-center font-wt">My <span class="blueColor">Cart</span></h1>
+<h4>You have total {{totalItems}} Items in your cart</h4>
 <table class=" table table-hover table-condensed">
     <thead>
     <tr>
@@ -44,10 +48,11 @@
   </table>
 
   <div class="text-center marg-top-30">
-    <button class="button buttonGetStarted-yellow text-center" (click)="gotoShippingInfoForm()">Add Adress</button>
+    <button class="button buttonGetStarted-yellow text-center text-button" (click)="gotoShippingInfoForm()">Add/Update Address</button>
     <span *ngIf="userHasAddressSaved">
-      <button class="button buttonGetStarted-header text-center" (click)="checkOut()">CheckOut</button>
+      <button class="button buttonGetStarted-header text-center text-button" (click)="checkOut()">PLACE ORDER</button>
     </span>
-    <button class="button buttonGetStarted-green text-center" routerLink="/home">Continue Shopping</button>
+    <button class="button buttonGetStarted-green text-center text-button" routerLink="/products">Continue Shopping</button>
   </div>
   <!-- [disabled]="!userHasAddressSaved" -->
+</div>

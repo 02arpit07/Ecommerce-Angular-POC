@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   public loggedInUsername='';
 
-  constructor(private loginService:LoginService,private router:Router,private toastr: ToastrService) { }
+  constructor(private loginService:LoginService,private router:Router,private toastr: ToastrService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
             timeOut: 4000,
             closeButton:true
           });
+
         },
         error =>{
           if(error.status ==401){

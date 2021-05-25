@@ -1,2 +1,53 @@
-<p>homepage works!</p>
-<img src="../../assets/images/electronics.PNG" alt="">
+<app-navbar></app-navbar>
+<div>
+    <div class="container-fluid">
+        <div class="row margin-bot-100">
+          <div class="col-md-9 text-center font-style-1">
+            Buy products at our online store<br> <span style="color: rgb(172, 54, 54);"> SHOPPER'S STOCK</span>
+          </div>
+          <div class="col-md-3 ">
+            <button class="button button5 abcd" routerLink="/products">Shop Now..</button>
+          </div>
+        </div>
+        <!-- Carousel Starts -->
+  <div class="row">
+    <div class="col-lg-12 pad-bot-60">
+        <owl-carousel-o [options]="carouselOption">
+            <ng-template carouselSlide *ngFor="let image of carousalImages">
+                <div class="item">
+                    <div class="client-images">
+                        <img src="{{image}}" alt="client-img" width="300px" class="mx-auto img-fluid d-block" />
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>
+<!-- Carousel Ends -->
+        <div class="row bg-color-blue size-section-1">
+            <div class="col-md-4 text-center px-3">
+                <h2 class="heading-1">Shop whatever you want..</h2>
+              </div>
+            <div class="col-md-4 text-center">
+                <h2 class="heading-1">Daily Deals : Here Now, Gone Tomorrow.</h2>
+              </div>
+            <div class="col-md-4 text-center">
+                <h2 class="heading-1">FREE DELIVERY ON ALL ORDER NOON TO MIDNIGHT</h2>
+              </div>
+        </div>
+        <div class="row  size-section-1">
+            <div class="col-md-4 text-center px-3">
+                <img src="../../assets/images/home1.PNG" alt="">
+              </div>
+            <div class="col-md-4 text-center">
+                <img src="../../assets/images/home2.PNG" alt="">
+              </div>
+            <div class="col-md-4 text-center">
+                <img src="../../assets/images/home3.PNG" alt="">
+              </div>
+        </div>
+      </div>
+</div>
+
+<app-footer></app-footer>
+  

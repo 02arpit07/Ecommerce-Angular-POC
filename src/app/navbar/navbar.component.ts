@@ -1,4 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { CartItemsquantityService } from '../services/cart-itemsquantity.service';
+import { CartService } from '../services/cart.service';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -11,9 +13,12 @@ export class NavbarComponent implements OnInit {
   public loggedIn:boolean;
   public loggedInUser;
   public isAdmin;
+  public totalItems;
+  public x='0';
+// @Input() public totalItemssss;
   // @Input() public loggedInUser ='User';
 
-  constructor(private loginservice:LoginService) { 
+  constructor(private loginservice:LoginService,private cartItems:CartItemsquantityService,private cart:CartService) { 
   }
 
   ngOnInit(): void {
@@ -22,10 +27,24 @@ export class NavbarComponent implements OnInit {
     this.loggedIn = this.loginservice.isLoggedIn();
     this.loggedInUser = this.loginservice.getUsername();
     this.isAdmin = this.loginservice.getLoggedInUserRoles();
+    this.totalItems = localStorage.getItem('totalItems');
+    // this.totalItems = this.cartItems.getOption();
+
+    // this.cart.showMyCart().subscribe(data => {
+    //   this.products = data;
+    //   console.log(this.products.length);
+    //   let totalItems = 0;
+    //   for(let i=0; i<this.products.length;i++) {
+    //     totalItems = totalItems + this.products[i].quantity;
+    //   }
+    //   this.totalItems = totalItems;
+    // })
+    
   }
 
   logout() {
     this.loginservice.logout();
+    localStorage.setItem('totalItems',this.x);
     location.reload();
   }
 

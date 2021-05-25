@@ -1,8 +1,9 @@
-<div class="bootstrap-wrapper">
-    <div class="container mt">
+<app-navbar></app-navbar>
+<div class="bootstrap-wrapper mx-3">
+    <div class="container-fluid mt">
 
         <div class="row">
-            <div class="col-md-6 offest-md-3">
+            <div class="col-md-6 text-center mx-auto my-auto">
                 <!-- <div class="container text-center">
                     <img src="../../assets/images/login.jpg" class="img-fluid">
                 </div> -->
@@ -30,14 +31,25 @@
                         <button style="margin-left: 10px;" type="reset" mat-raised-button color="warn">Reset</button>
                     </div>
                 </form>
-                {{credentials|json}}
-                <div class="container text-center">
+
+                <!-- {{credentials|json}} -->
+                <!-- <div class="container text-center">
                     <img src="../../assets/images/template.svg" class="img-fluid">
+                </div> -->
+            </div>
+            <div>
+                <p>Don't have an account</p>
+                <a href="/">Register Now</a>
+            </div>
+            <!-- <div class="col-md-6">
+                <div class="imgBx">
+                    <img src="../../assets/images/login2.jpg" alt="Image-bg">
                 </div>
-            </div>
-            <div class="col-md-6">
-                
-            </div>
+                <div class="contentBx">
+                    LOGIN
+
+                </div>
+            </div> -->
         </div>
     </div>
 </div>

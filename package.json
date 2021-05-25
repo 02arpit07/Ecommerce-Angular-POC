@@ -24,10 +24,12 @@
     "@angular/router": "~9.1.9",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
     "bootstrap": "^4.6.0",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
+    "ngx-owl-carousel-o": "^5.0.0",
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

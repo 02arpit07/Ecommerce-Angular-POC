@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartItemsquantityService } from '../services/cart-itemsquantity.service';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { CartService } from '../services/cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private cart:CartService, private router:Router,private toastr: ToastrService) { }
+  constructor(private cart:CartService, private router:Router,private toastr: ToastrService) {
+   }
   public products:any =[];
   public totalAmount = 0;
   public totalItems = 0;
@@ -42,6 +44,8 @@ export class ShoppingCartComponent implements OnInit {
       this.userHasAddressSaved =false;
     }
     )
+    // this.cartQuant.setOption(this.totalItems);
+    // localStorage.setItem('totalItems',this.totalItems.toString())
   }
 
   addOneProduct(id:any) {
@@ -57,6 +61,7 @@ export class ShoppingCartComponent implements OnInit {
         }
         this.totalAmount = totalAmount;
       this.totalItems = totalItems;
+      localStorage.setItem('totalItems',totalItems.toString())
       })
     })
   }
@@ -74,6 +79,7 @@ export class ShoppingCartComponent implements OnInit {
         }
         this.totalAmount = totalAmount;
       this.totalItems = totalItems;
+      localStorage.setItem('totalItems',totalItems.toString())
       })
     })
   }
@@ -91,6 +97,7 @@ export class ShoppingCartComponent implements OnInit {
         }
         this.totalAmount = totalAmount;
       this.totalItems = totalItems;
+      localStorage.setItem('totalItems',totalItems.toString())
       })
     })
   }

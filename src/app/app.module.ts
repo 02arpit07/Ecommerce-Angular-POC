@@ -36,6 +36,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { CartService } from './services/cart.service';
 import {MatSliderModule} from '@angular/material/slider';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -57,7 +59,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     PageNotFoundComponent,
     ProductFilterComponent,
     ProductCardComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatIconModule,
     MatCardModule,
     MatSliderModule,
+    CarouselModule,
   ],
   providers: [
     LoginService,

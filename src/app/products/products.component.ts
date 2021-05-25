@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { error } from 'selenium-webdriver';
 import { CartService } from '../services/cart.service';
+import { LoginService } from '../services/login.service';
 import { Product, ProductService } from '../services/product.service';
 
 @Component({
@@ -14,8 +15,9 @@ export class ProductsComponent implements OnInit {
   products: any = [];
   filteredProducts:Product[] = [];
   category:string;
+  productsInCart:any;
 
-  constructor(private route:ActivatedRoute, private productService:ProductService,private cartService:CartService,private toastr: ToastrService) {
+  constructor(private route:ActivatedRoute, private productService:ProductService,private cartService:CartService,private toastr: ToastrService,private loginService:LoginService) {
     this.productService.getAllProducts().subscribe(listOfProducts => {
       this.products = listOfProducts;
       console.log(listOfProducts);
@@ -36,6 +38,15 @@ export class ProductsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.cartService.showMyCart().subscribe(data => {
+      this.productsInCart = data;
+      let totalItems = 0;
+      for(let i=0; i<this.productsInCart.length;i++) {
+        totalItems = totalItems + this.productsInCart[i].quantity;
+      }
+      localStorage.setItem('totalItems',totalItems.toString());
+    })
+  
   }
 
   addToCart(product:any) {
@@ -53,6 +64,15 @@ export class ProductsComponent implements OnInit {
         closeButton:true
       });
     })
+    let name =this.loginService.getUsername();
+    console.log(name)
+    if(name!='User'){
+    let total = localStorage.getItem('totalItems');
+    var y: number = +total;
+    y=y+1;
+    localStorage.setItem('totalItems',y.toString());
+    console.log(total)
+    }
   }
 
 
