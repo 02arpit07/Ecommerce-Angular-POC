@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { error } from 'selenium-webdriver';
 import { CartService } from '../services/cart.service';
 import { LoginService } from '../services/login.service';
 import { Product, ProductService } from '../services/product.service';
@@ -93,6 +92,13 @@ export class ProductsComponent implements OnInit {
 
   fetchProductsByMinMax(min:any,max:any) {
     this.productService.getProductByPriceBetween(min,max).subscribe(data =>{
+      this.filteredProducts = data;
+    })
+
+  }
+
+  searchProducts(keyword:any) {
+    this.productService.searchProducts(keyword).subscribe(data =>{
       this.filteredProducts = data;
     })
 

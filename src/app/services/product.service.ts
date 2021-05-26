@@ -43,5 +43,8 @@ export class ProductService {
   getProductByPriceBetween(min , max) {
     return this.http.get<Product[]>(this.url+'/category'+'/'+min+'/'+max);
   }
+  searchProducts(keyword) {
+    return this.http.get<Product[]>(this.url+'/search'+'/'+keyword);
+  }
 
 }

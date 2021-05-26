@@ -9,7 +9,9 @@ export class OrderSuccessComponent implements OnInit {
 
   constructor() { }
 
+  public name;
   ngOnInit(): void {
+    this.name = localStorage.getItem('username');
   }
 
 }
