@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../services/cart.service';
@@ -17,13 +17,16 @@ export class LoginComponent implements OnInit {
 
   public loggedInUsername='';
 
-  constructor(private loginService:LoginService,private router:Router,private toastr: ToastrService) { 
+  constructor(private loginService:LoginService,private router:Router,private toastr: ToastrService,private route:ActivatedRoute) { 
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
+
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl')||'/products';
+
     if((this.credentials.username!=''&&this.credentials.password!='')&&(this.credentials.username!=null && this.credentials.password!=null)) {
       //TOKEN GENERATE
       this.loginService.generateToken(this.credentials).subscribe(
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
 
           this.loggedInUsername = response.username;
           this.loginService.loginUser(response.accessToken,response.username,response.roles);
-          this.router.navigate(['/products'])
+          this.router.navigate([returnUrl]);
           // this.toastr.success('Logged in Successfully', 'NOTIFICATION');
           this.toastr.success('Login Successful', 'Notification', {
             timeOut: 4000,

@@ -16,11 +16,11 @@ export class HomepageComponent implements OnInit {
     this.carousalImages = [
       "../../assets/images/electronics.PNG",
       "../../assets/images/laptop.PNG",
-      "../../assets/images/electronics.PNG",
-      "../../assets/images/laptop.PNG",
-      "../../assets/images/electronics.PNG",
-      "../../assets/images/electronics.PNG",
-      "../../assets/images/electronics.PNG"
+      "../../assets/images/mobile.PNG",
+      "../../assets/images/sidetable.PNG",
+      "../../assets/images/sofa.PNG",
+      "../../assets/images/fashion1.PNG",
+      "../../assets/images/fashion2.PNG"
     ]
 
   }

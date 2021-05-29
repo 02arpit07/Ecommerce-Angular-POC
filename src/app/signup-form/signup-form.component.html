@@ -7,8 +7,8 @@
                 <!-- <div class="container text-center">
                     <img src="../../assets/images/login.jpg" class="img-fluid">
                 </div> -->
-                <p class="login-heading">Welcome Back :)</p>
-                <p class="login-desc">To keep connected with us please login with your personal information by username and password.</p>
+                <p class="login-heading">New to Shopper's Stock</p>
+                <p class="login-desc">You can register to our site to easily place orders whenever and however you need</p>
 
                 <form (ngSubmit)="onSubmit()">
                     <mat-form-field class="full-width" appearance="outline">
@@ -18,6 +18,15 @@
                     <div class="alert alert-danger" *ngIf="uname.touched && uname.invalid">
                         Username is required
                     </div>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label> Email</mat-label>
+                        <input #email="ngModel" [(ngModel)]="credentials.email" name="email" required type="text" matInput>
+                    </mat-form-field>
+                    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                        Email is required
+                    </div>
+
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label> Password</mat-label>
                         <input #pwd="ngModel" [(ngModel)]="credentials.password" name="password" required type="password" matInput>
@@ -27,29 +36,17 @@
                     </div>
 
                     <div class="container text-center">
-                        <button type="submit" mat-raised-button color="primary">Login</button>
+                        <button type="submit" mat-raised-button color="primary">Register</button>
                         <button style="margin-left: 10px;" type="reset" mat-raised-button color="warn">Reset</button>
                     </div>
                 </form>
 
                 {{credentials|json}}
-                <!-- <div class="container text-center">
-                    <img src="../../assets/images/template.svg" class="img-fluid">
-                </div> -->
             </div>
             <div>
-                <p>Don't have an account</p>
-                <a routerLink="/register">Register Now</a>
+                <p>Already Have an Account</p>
+                <a href="/">Login Now</a>
             </div>
-            <!-- <div class="col-md-6">
-                <div class="imgBx">
-                    <img src="../../assets/images/login2.jpg" alt="Image-bg">
-                </div>
-                <div class="contentBx">
-                    LOGIN
-
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@ export class CheckOutComponent implements OnInit {
       this.cartService.sendShippingInfo(this.shippingInfo).subscribe(
         (response:any)=>{
           console.log(response);
-          this.toastr.success('You have successfully added Adsress', 'Notification', {
+          this.toastr.success('You have successfully added Address', 'Notification', {
             timeOut: 4000,
             closeButton:true
           });

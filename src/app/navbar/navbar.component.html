@@ -9,13 +9,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-cart"><strong style="color: rgb(245, 35, 70);"> {{totalItems}}</strong><span class="cart-icon"><i class="fas fa-cart-plus"></i></span>Cart</a>
         </li>
+      </ul>
+
+      <ul class="navbar-nav">
         <li ngbDropdown *ngIf="loggedIn" class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{loggedInUser}}
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
-            <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
+            <a *ngIf="isAdmin" class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
             <div class="dropdown-divider"></div>
             <a *ngIf="isAdmin" class="dropdown-item" routerLink="/admin/products">Manange Products</a>
           </div>
@@ -30,5 +33,7 @@
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
+      
+
     </div>
   </nav>

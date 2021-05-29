@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItemsquantityService } from '../services/cart-itemsquantity.service';
 import { CartService } from '../services/cart.service';
 import { LoginService } from '../services/login.service';
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
 // @Input() public totalItemssss;
   // @Input() public loggedInUser ='User';
 
-  constructor(private loginservice:LoginService,private cartItems:CartItemsquantityService,private cart:CartService) { 
+  constructor(private loginservice:LoginService,private cartItems:CartItemsquantityService,private cart:CartService,private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -45,6 +46,8 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.loginservice.logout();
     localStorage.setItem('totalItems',this.x);
+    // this.router.navigate[('home')]
+    
     location.reload();
   }
 

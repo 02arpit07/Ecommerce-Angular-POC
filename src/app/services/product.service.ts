@@ -47,4 +47,8 @@ export class ProductService {
     return this.http.get<Product[]>(this.url+'/search'+'/'+keyword);
   }
 
+  getProductById(id) {
+    return this.http.get<Product>(this.url+'/'+id);
+  }
+
 }

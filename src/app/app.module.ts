@@ -38,6 +38,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FooterComponent } from './footer/footer.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 
@@ -60,7 +61,8 @@ import { FooterComponent } from './footer/footer.component';
     ProductFilterComponent,
     ProductCardComponent,
     ProductDetailComponent,
-    FooterComponent
+    FooterComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,

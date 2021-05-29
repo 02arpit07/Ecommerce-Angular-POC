@@ -18,6 +18,8 @@ export class ShoppingCartComponent implements OnInit {
   public totalItems = 0;
 
   public userHasAddressSaved:any;
+  public userAddress:any;
+  public userPhone:any;
 
   ngOnInit(): void {
     this.cart.showMyCart().subscribe(data => {
@@ -31,11 +33,15 @@ export class ShoppingCartComponent implements OnInit {
       }
       this.totalAmount = totalAmount;
       this.totalItems = totalItems;
+      localStorage.setItem('totalItems',this.totalItems.toString());
     })
 
     //To check whether we have Address corresponding to currently loggedin user
     this.cart.checkIfAddressIsExisting().subscribe(address=>{
       console.log(address.customer_address);
+
+      this.userAddress = address.customer_address +","+address.city +" ," +address.state;
+      this.userPhone =address.phone_number;
       // this.userHasAddressSaved = address.customer_address;
       if(address.customer_address!=null)
       this.userHasAddressSaved = true;
@@ -44,8 +50,6 @@ export class ShoppingCartComponent implements OnInit {
       this.userHasAddressSaved =false;
     }
     )
-    // this.cartQuant.setOption(this.totalItems);
-    // localStorage.setItem('totalItems',this.totalItems.toString())
   }
 
   addOneProduct(id:any) {
@@ -112,6 +116,8 @@ export class ShoppingCartComponent implements OnInit {
           timeOut: 4000,
           closeButton:true
         });
+        let x:number = 0;
+        localStorage.setItem('totalItems',x.toString())
         this.router.navigate(['/order-success'])
       },
       (error)=>{

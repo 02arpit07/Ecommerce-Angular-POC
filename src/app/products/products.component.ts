@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../services/cart.service';
 import { LoginService } from '../services/login.service';
@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   category:string;
   productsInCart:any;
 
-  constructor(private route:ActivatedRoute, private productService:ProductService,private cartService:CartService,private toastr: ToastrService,private loginService:LoginService) {
+  constructor(private route:ActivatedRoute, private productService:ProductService,private cartService:CartService,private toastr: ToastrService,private loginService:LoginService,private router:Router) {
     this.productService.getAllProducts().subscribe(listOfProducts => {
       this.products = listOfProducts;
       console.log(listOfProducts);
@@ -98,10 +98,20 @@ export class ProductsComponent implements OnInit {
   }
 
   searchProducts(keyword:any) {
-    this.productService.searchProducts(keyword).subscribe(data =>{
-      this.filteredProducts = data;
-    })
+    if(keyword!=''&&keyword!=null){
+      this.productService.searchProducts(keyword).subscribe(data =>{
+        this.filteredProducts = data;
+      },
+      (error)=>{
+        console.log(error);
+      })
+
+    }
 
   }
+
+  getProd(prodId) {
+    this.router.navigate(['productdetail' , prodId]);
+    }
 
 }

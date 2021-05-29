@@ -48,6 +48,12 @@
   </table>
 
   <div class="text-center marg-top-30">
+    <h5>The address for this account is {{userAddress}}</h5>
+    <h5>The contact number for this account is {{userPhone}}</h5>
+    
+  </div>
+
+  <div class="text-center marg-top-30">
     <button class="button buttonGetStarted-yellow text-center text-button" (click)="gotoShippingInfoForm()">Add/Update Address</button>
     <span *ngIf="userHasAddressSaved">
       <button class="button buttonGetStarted-header text-center text-button" (click)="checkOut()">PLACE ORDER</button>

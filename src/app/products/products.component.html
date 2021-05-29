@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+
 <div class="wrap">
   <div class="search text-center">
      <input type="text" class="searchTerm" #searchbar (keyup) = "searchProducts(searchbar.value)" placeholder="What are you looking for?">
@@ -58,6 +59,7 @@
             />
             <div class="card-body text-center mx-auto">
               <h5 class="card-title">{{ p.productName }}</h5>
+              <p class="card-title-1">By-{{ p.manufacturerName }}</p>
               <p class="card-text"><span>&#8377;</span>{{ p.price }}</p>
               <button
                 mat-stroked-button
@@ -66,6 +68,16 @@
               >
                 Add to Cart
               </button>
+              <button
+              class="marg-top-2"
+                mat-stroked-button
+                color="accent"
+                (click)="getProd(p.productId)"
+              >
+                View Details
+              </button>
+
+              <!-- <button class="btn btn-info btn-sm" (click)="getProd(s.productId)">View Product</button> -->
               <!-- <a href="#"><button mat-stroked-button color="warn">N</button></a> -->
             </div>
           </div>
@@ -75,6 +87,16 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <!-- <div class="row">
   <ng-container *ngFor="let p of products; let i = index">
